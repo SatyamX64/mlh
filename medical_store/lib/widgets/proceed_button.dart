@@ -9,6 +9,7 @@ class ProceedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Positioned(
       bottom: 25,
       left: 110,
@@ -18,7 +19,9 @@ class ProceedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(4),
           elevation: 4,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 8),
+            padding: EdgeInsets.symmetric(
+                horizontal: size.width * 0.1111,
+                vertical: size.height * 0.01183),
             decoration: BoxDecoration(
                 color: Color(0xff008db9),
                 borderRadius: BorderRadius.circular(4)),
