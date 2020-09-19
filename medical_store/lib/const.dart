@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 const primaryTextstyle = TextStyle(
     color: Color(0xfff1f1f1),
@@ -11,3 +11,13 @@ const secondaryTextstyle = TextStyle(
     fontSize: 16,
     fontFamily: 'Sen',
     fontWeight: FontWeight.bold);
+
+final appbar = AppBar(
+  backgroundColor: Color(0xff008db9),
+  centerTitle: true,
+  leading: Container(),
+  title: Text(
+    'Medi-Care',
+    style: primaryTextstyle,
+  ),
+);

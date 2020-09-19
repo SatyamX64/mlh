@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicalstore/screens/create_bill_screen.dart';
 import '../const.dart';
 import '../widgets/baseContaine.dart';
 import '../widgets/bill_widget.dart';
@@ -14,14 +15,7 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff008db9),
-        centerTitle: true,
-        title: Text(
-          'Medi-Care',
-          style: primaryTextstyle,
-        ),
-      ),
+      appBar: appbar,
       body: Padding(
         padding: EdgeInsets.fromLTRB(size.width * 0.05555,
             size.height * 0.029585, size.width * 0.05555, 0),
@@ -76,7 +70,13 @@ class _HomepageState extends State<Homepage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CreateBillScreen(),
+                          ));
+                    },
                     child: Container(
                       width: size.width * 0.66666,
                       padding: EdgeInsets.all(8),
