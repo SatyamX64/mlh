@@ -18,20 +18,17 @@ class CreateBillButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(padding: EdgeInsets.only(top: size.height * 0.029585)),
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                  color: Color(0xff008db9),
-                  borderRadius: BorderRadius.circular(40)),
-              child: Center(
-                child: Icon(
-                  Icons.add,
-                  color: Color(0xfff1f1f1),
-                  size: 28,
-                ),
+          Container(
+            width: size.width * 0.11111,
+            height: size.height * 0.059171,
+            decoration: BoxDecoration(
+                color: Color(0xff008db9),
+                borderRadius: BorderRadius.circular(size.width * 0.11111)),
+            child: Center(
+              child: Icon(
+                Icons.add,
+                color: Color(0xfff1f1f1),
+                size: 28,
               ),
             ),
           ),
