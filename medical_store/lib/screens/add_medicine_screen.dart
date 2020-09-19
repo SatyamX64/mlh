@@ -189,7 +189,7 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
                     ),
                     Padding(
                         padding: EdgeInsets.only(top: size.height * 0.029585)),
-                    //add medicine button
+                    //add medicine button on tap pops and returns medicine model
                     AddMedicineButton(
                       size: size,
                       onTap: () {
