@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medicalstore/const.dart';
+import 'package:medicalstore/models/medicine.dart';
 import 'package:medicalstore/screens/add_medicine_screen.dart';
 import 'package:medicalstore/widgets/baseContaine.dart';
 import 'package:medicalstore/widgets/proceed_button.dart';
 
-class CreateBillScreen extends StatelessWidget {
+class CreateBillScreen extends StatefulWidget {
+  @override
+  _CreateBillScreenState createState() => _CreateBillScreenState();
+}
+
+class _CreateBillScreenState extends State<CreateBillScreen> {
+  List<Medicine> medicines = [];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -14,12 +21,13 @@ class CreateBillScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add Medicines',
         backgroundColor: Color(0xff008db9),
-        onPressed: () {
-          Navigator.push(
+        onPressed: () async {
+          Medicine medicine = await Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => AddMedicineScreen(),
               ));
+          medicines.add(medicine);
         },
         child: Center(
             child: Icon(

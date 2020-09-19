@@ -6,14 +6,16 @@ class AddMedicineButton extends StatelessWidget {
   const AddMedicineButton({
     Key key,
     @required this.size,
+    @required this.onTap,
   }) : super(key: key);
 
   final Size size;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Material(
         borderRadius: BorderRadius.circular(4),
         elevation: 4,
