@@ -61,6 +61,10 @@ class _CreateBillScreenState extends State<CreateBillScreen> {
                     size: size,
                     name: medicines[i].name,
                     amount: medicines[i].amount,
+                    onTap: () {
+                      medicines.remove(medicines[i]);
+                      setState(() {});
+                    },
                   ),
                 );
               },

@@ -10,10 +10,12 @@ class MedicineCard extends StatelessWidget {
     @required this.size,
     this.name,
     this.amount,
+    this.onTap,
   }) : super(key: key);
 
   final Size size;
   final String name, amount;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class MedicineCard extends StatelessWidget {
           ),
           //button to remove the medicine from bill
           GestureDetector(
-            onTap: () {},
+            onTap: onTap,
             child: SvgPicture.asset('icons/delete.svg',
                 height: size.height * 0.0355, width: size.width * 0.06666),
           )

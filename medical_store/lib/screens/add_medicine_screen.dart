@@ -94,6 +94,7 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
                           },
                           cursorColor: Color(0xff37A794),
                           style: secondaryTextstyle,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                               hintText: 'Amount of tablets',
                               enabledBorder: InputBorder.none,
@@ -121,6 +122,7 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
                             borderRadius: BorderRadius.circular(6)),
                         //textformfield
                         child: TextFormField(
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             price = value;
                           },
