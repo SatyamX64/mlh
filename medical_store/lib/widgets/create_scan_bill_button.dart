@@ -28,7 +28,7 @@ class CreateBillButton extends StatelessWidget {
               child: Icon(
                 Icons.add,
                 color: Color(0xfff1f1f1),
-                size: 28,
+                size: size.height * 0.04142,
               ),
             ),
           ),

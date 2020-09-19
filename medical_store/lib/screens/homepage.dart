@@ -29,7 +29,7 @@ class _HomepageState extends State<Homepage> {
           children: [
             //button for creating a new bill or scan an old one
             GestureDetector(
-              onTap: () {},
+              onTap: show,
               child: BaseContainer(
                 child: CreateBillButton(size: size),
               ),
@@ -53,6 +53,71 @@ class _HomepageState extends State<Homepage> {
           ],
         ),
       ),
+    );
+  }
+
+  show() {
+    return showDialog(
+      context: this.context,
+      barrierDismissible: true,
+      builder: (context) {
+        return Dialog(
+          child: FittedBox(
+            fit: BoxFit.none,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+              decoration: BoxDecoration(
+                  color: Color(0xfff1f1f1),
+                  borderRadius: BorderRadius.circular(4)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      width: 240,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          color: Color(0xff008db9),
+                          borderRadius: BorderRadius.circular(4)),
+                      child: Center(
+                          child: Text(
+                        'Create new bill',
+                        style: primaryTextstyle.copyWith(
+                          fontSize: 16,
+                        ),
+                      )),
+                    ),
+                  ),
+                  Padding(padding: EdgeInsets.only(top: 8)),
+                  Text(
+                    'Or',
+                    style: secondaryTextstyle,
+                  ),
+                  Padding(padding: EdgeInsets.only(top: 8)),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      width: 240,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          color: Color(0xff008db9),
+                          borderRadius: BorderRadius.circular(4)),
+                      child: Center(
+                          child: Text(
+                        'Scan old bill',
+                        style: primaryTextstyle.copyWith(
+                          fontSize: 16,
+                        ),
+                      )),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
