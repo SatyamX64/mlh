@@ -5,3 +5,9 @@ const primaryTextstyle = TextStyle(
     fontSize: 18,
     fontFamily: 'Sen',
     fontWeight: FontWeight.bold);
+
+const secondaryTextstyle = TextStyle(
+    color: Color(0xff605656),
+    fontSize: 16,
+    fontFamily: 'Sen',
+    fontWeight: FontWeight.bold);

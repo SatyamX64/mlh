@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../const.dart';
+import '../widgets/create_scan_bill_button.dart';
 import '../widgets/baseContaine.dart';
 
 class Homepage extends StatefulWidget {
@@ -26,7 +27,9 @@ class _HomepageState extends State<Homepage> {
             size.height * 0.029585, size.width * 0.05555, 0),
         child: Column(
           children: [
-            BaseContainer(),
+            BaseContainer(
+              child: CreateBillButton(size: size),
+            ),
           ],
         ),
       ),
