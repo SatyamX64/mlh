@@ -61,11 +61,14 @@ class _HomepageState extends State<Homepage> {
       context: this.context,
       barrierDismissible: true,
       builder: (context) {
+        final size = MediaQuery.of(context).size;
         return Dialog(
           child: FittedBox(
             fit: BoxFit.none,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+              padding: EdgeInsets.symmetric(
+                  horizontal: size.width * 0.05555,
+                  vertical: size.height * 0.059171),
               decoration: BoxDecoration(
                   color: Color(0xfff1f1f1),
                   borderRadius: BorderRadius.circular(4)),
@@ -75,7 +78,7 @@ class _HomepageState extends State<Homepage> {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      width: 240,
+                      width: size.width * 0.66666,
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           color: Color(0xff008db9),
@@ -98,7 +101,7 @@ class _HomepageState extends State<Homepage> {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      width: 240,
+                      width: size.width * 0.66666,
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           color: Color(0xff008db9),
