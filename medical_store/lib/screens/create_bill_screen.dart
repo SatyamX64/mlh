@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medicalstore/const.dart';
+import 'package:medicalstore/screens/add_medicine_screen.dart';
 import 'package:medicalstore/widgets/baseContaine.dart';
 import 'package:medicalstore/widgets/proceed_button.dart';
 
@@ -13,7 +14,13 @@ class CreateBillScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add Medicines',
         backgroundColor: Color(0xff008db9),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AddMedicineScreen(),
+              ));
+        },
         child: Center(
             child: Icon(
           Icons.add,
