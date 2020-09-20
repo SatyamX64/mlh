@@ -1,5 +1,6 @@
 class Medicine {
-  final String name, amount, pricePerTablet;
+  final String name;
+  final int amount, pricePerTablet;
   final bool morning, noon, night;
   Medicine(
       {this.name,

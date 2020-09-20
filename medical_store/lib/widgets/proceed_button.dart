@@ -5,16 +5,19 @@ import '../const.dart';
 class ProceedButton extends StatelessWidget {
   const ProceedButton({
     Key key,
+    this.onTap,
   }) : super(key: key);
+
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Positioned(
-      bottom: 25,
-      left: 110,
+      bottom: size.height * 0.03698,
+      left: size.width * 0.3055,
       child: GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Material(
           borderRadius: BorderRadius.circular(4),
           elevation: 4,

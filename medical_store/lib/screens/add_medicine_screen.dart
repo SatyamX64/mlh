@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:medicalstore/const.dart';
 import 'package:medicalstore/models/medicine.dart';
 import 'package:medicalstore/widgets/add_medicine_button.dart';
@@ -11,7 +12,8 @@ class AddMedicineScreen extends StatefulWidget {
 
 class _AddMedicineScreenState extends State<AddMedicineScreen> {
   bool morning = false, noon = false, night = false;
-  String name, amount, price;
+  String name;
+  int amount, price;
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -89,8 +91,11 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
                             color: Color(0xFFF1F1F1),
                             borderRadius: BorderRadius.circular(6)),
                         child: TextFormField(
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
                           onChanged: (value) {
-                            amount = value;
+                            amount = num.tryParse(value);
                           },
                           cursorColor: Color(0xff37A794),
                           style: secondaryTextstyle,
@@ -123,8 +128,11 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
                         //textformfield
                         child: TextFormField(
                           keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
                           onChanged: (value) {
-                            price = value;
+                            price = num.tryParse(value);
                           },
                           cursorColor: Color(0xff37A794),
                           style: secondaryTextstyle,
