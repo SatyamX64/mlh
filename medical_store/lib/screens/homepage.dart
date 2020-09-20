@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:medicalstore/dummy_data.dart';
 import 'package:medicalstore/screens/create_bill_screen.dart';
 import '../const.dart';
@@ -55,6 +58,7 @@ class _HomepageState extends State<Homepage> {
                     no: bills[i].no,
                     date: bills[i].date,
                     total: bills[i].total,
+                    bill: bills[i],
                   );
                 },
               ),
@@ -65,7 +69,19 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
+  File _image;
+  final picker = ImagePicker();
+  //function to get the image of medicine
+  Future getImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = File(pickedFile.path);
+    });
+  }
+
   show() {
+    bool recognisingText = false;
     return showDialog(
       context: this.context,
       barrierDismissible: true,
@@ -89,7 +105,7 @@ class _HomepageState extends State<Homepage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CreateBillScreen(),
+                            builder: (context) => CreateBillScreen([]),
                           ));
                     },
                     child: Container(
@@ -114,7 +130,16 @@ class _HomepageState extends State<Homepage> {
                   ),
                   Padding(padding: EdgeInsets.only(top: 8)),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () async {
+                      recognisingText = true;
+                      await getImage();
+                      await Future.delayed(Duration(seconds: 3));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CreateBillScreen(bill),
+                          ));
+                    },
                     child: Container(
                       width: size.width * 0.66666,
                       padding: EdgeInsets.all(8),

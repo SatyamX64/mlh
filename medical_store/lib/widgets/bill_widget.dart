@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:medicalstore/models/bill.dart';
+import 'package:medicalstore/screens/view_bill_screen.dart';
 
 import '../const.dart';
 import 'baseContaine.dart';
@@ -11,16 +13,24 @@ class BillWidget extends StatelessWidget {
     this.no,
     this.date,
     this.total,
+    this.bill,
   }) : super(key: key);
 
   final Size size;
   final int no, total;
   final String date;
+  final Bill bill;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ViewBillScreen(bill),
+            ));
+      },
       child: Container(
         margin: EdgeInsets.only(bottom: 10),
         child: BaseContainer(

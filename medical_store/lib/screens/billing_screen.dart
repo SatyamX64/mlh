@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:medicalstore/const.dart';
 import 'package:medicalstore/dummy_data.dart';
@@ -25,8 +27,9 @@ class _BillingScreenState extends State<BillingScreen> {
     }
   }
 
-  // generateQR(){
-
+  // Future<Uint8List> generateQR() async {
+  //   String qrString = '${bill}';
+  //    return await scanner.generateBarCode()
   // }
 
   @override
@@ -186,6 +189,7 @@ class _BillingScreenState extends State<BillingScreen> {
                   GestureDetector(
                     onTap: () {
                       goBack = true;
+                      Navigator.pop(context);
                     },
                     child: Container(
                       width: size.width * 0.66666,

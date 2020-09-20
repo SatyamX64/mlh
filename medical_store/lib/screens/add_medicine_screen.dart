@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:medicalstore/const.dart';
 import 'package:medicalstore/models/medicine.dart';
 import 'package:medicalstore/widgets/add_medicine_button.dart';
@@ -16,6 +19,17 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
   int amount, price;
   final _formKey = GlobalKey<FormState>();
 
+  File _image;
+  final picker = ImagePicker();
+  //function to get the image of medicine
+  Future getImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = File(pickedFile.path);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -30,16 +44,29 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
-                child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(width: 1, color: Color(0xffc4c4c4))),
-                    margin: EdgeInsets.only(bottom: size.height * 0.01479),
-                    height: size.height * 0.32544,
-                    width: size.width * 0.6111,
-                    child: Center(
-                      child: SvgPicture.asset('icons/image.svg'),
-                    )),
+                child: GestureDetector(
+                  onTap: getImage,
+                  child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          border:
+                              Border.all(width: 1, color: Color(0xffc4c4c4))),
+                      margin: EdgeInsets.only(bottom: size.height * 0.01479),
+                      height: size.height * 0.32544,
+                      width: size.width * 0.6111,
+                      child: _image == null
+                          ? Center(
+                              child: SvgPicture.asset(
+                                'icons/image.svg',
+                              ),
+                            )
+                          : FittedBox(
+                              fit: BoxFit.fill,
+                              child: Image.file(
+                                _image,
+                              ),
+                            )),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: size.height * 0.03479),
