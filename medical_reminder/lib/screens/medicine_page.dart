@@ -12,6 +12,7 @@ class MedicinePage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        backgroundColor: kSecondary,
         body: Container(
           padding: EdgeInsets.fromLTRB(size.width / 15, size.height / 16,
               size.width / 15, size.height / 180),
@@ -37,10 +38,10 @@ class MedicinePage extends StatelessWidget {
                     ),
                     Text(
                       'Medicines',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline6
-                          .copyWith(fontSize: size.height / 32),
+                      style: Theme.of(context).textTheme.headline6.copyWith(
+                          fontSize: size.height / 32,
+                          color: kPrimary,
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
