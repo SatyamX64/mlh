@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicalstore/dummy_data.dart';
 import 'package:medicalstore/screens/create_bill_screen.dart';
 import '../const.dart';
 import '../widgets/baseContaine.dart';
@@ -43,7 +44,21 @@ class _HomepageState extends State<Homepage> {
             )),
             Padding(padding: EdgeInsets.only(top: size.height * 0.02479)),
             //custom widget for each bill issued by the store head
-            BillWidget(size: size)
+            Container(
+              height: 370,
+              width: double.maxFinite,
+              child: ListView.builder(
+                itemCount: bills.length,
+                itemBuilder: (context, i) {
+                  return BillWidget(
+                    size: size,
+                    no: bills[i].no,
+                    date: bills[i].date,
+                    total: bills[i].total,
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

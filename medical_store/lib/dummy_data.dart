@@ -1,5 +1,7 @@
 import 'package:medicalstore/models/medicine.dart';
 
+import 'models/bill.dart';
+
 List<Medicine> bill = [
   Medicine(
       name: 'Paracetamal',
@@ -124,4 +126,8 @@ List<Medicine> bill3 = [
       noon: true),
 ];
 
-List<List<Medicine>> bills = [bill1, bill2, bill3];
+List<Bill> bills = [
+  Bill(bill: bill1, date: '11/09/2020', no: 1, total: 460),
+  Bill(bill: bill2, date: '3/09/2020', no: 2, total: 345),
+  Bill(bill: bill3, date: '5/09/2020', no: 3, total: 225),
+];
