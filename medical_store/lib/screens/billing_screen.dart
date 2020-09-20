@@ -5,6 +5,7 @@ import 'package:medicalstore/models/bill.dart';
 import 'package:medicalstore/models/medicine.dart';
 import 'package:medicalstore/screens/homepage.dart';
 import 'package:medicalstore/widgets/baseContaine.dart';
+import 'package:qrscan/qrscan.dart' as scanner;
 
 class BillingScreen extends StatefulWidget {
   final List<Medicine> bill;
@@ -15,13 +16,18 @@ class BillingScreen extends StatefulWidget {
 }
 
 class _BillingScreenState extends State<BillingScreen> {
-  int total;
+  int total = 0;
   @override
   void initState() {
     super.initState();
-    for (int i = 0; i < widget.bill.length; i++)
+    for (int i = 0; i < widget.bill.length; i++) {
       total += widget.bill[i].amount * widget.bill[i].pricePerTablet;
+    }
   }
+
+  // generateQR(){
+
+  // }
 
   @override
   Widget build(BuildContext context) {

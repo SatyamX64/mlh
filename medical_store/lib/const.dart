@@ -17,7 +17,7 @@ final appbar = AppBar(
   centerTitle: true,
   leading: Container(),
   title: Text(
-    'Medi-Care',
+    'Medico',
     style: primaryTextstyle,
   ),
 );

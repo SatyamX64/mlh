@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medicalstore/const.dart';
 import 'package:medicalstore/models/medicine.dart';
 import 'package:medicalstore/widgets/add_medicine_button.dart';
-import 'package:medicalstore/widgets/capture_button.dart';
 
 class AddMedicineScreen extends StatefulWidget {
   @override
@@ -31,14 +31,16 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
             children: [
               Center(
                 child: Container(
-                  margin: EdgeInsets.only(bottom: size.height * 0.01479),
-                  height: size.height * 0.32544,
-                  width: size.width * 0.6111,
-                  color: Colors.red,
-                ),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        border: Border.all(width: 1, color: Color(0xffc4c4c4))),
+                    margin: EdgeInsets.only(bottom: size.height * 0.01479),
+                    height: size.height * 0.32544,
+                    width: size.width * 0.6111,
+                    child: Center(
+                      child: SvgPicture.asset('icons/image.svg'),
+                    )),
               ),
-              //capture button
-              CaptureButton(size: size),
               Padding(
                 padding: EdgeInsets.only(bottom: size.height * 0.03479),
               ),
