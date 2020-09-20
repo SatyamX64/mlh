@@ -76,7 +76,16 @@ class _HomePageState extends State<HomePage> {
                               Bill(
                                   name: 'Bill A',
                                   medicines: [
-                                    Medicine(name: 'Paracetmol',days: [1,1,1,1,1,1,1],price: 23.5,),
+                                    Medicine(
+                                      name: 'Paracetmol',
+                                      days: [1, 1, 1, 1, 1, 1, 1],
+                                      price: 23.5,
+                                    ),
+                                    Medicine(
+                                      name: 'D-Cold',
+                                      days: [1, 1, 1, 1, 1, 1, 1],
+                                      price: 33.5,
+                                    ),
                                   ],
                                   totalPrice: 120.76,
                                   qrCode: null,
