@@ -1,9 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:medical_reminder/constants.dart';
+import 'package:medical_reminder/provider/bill_provider.dart';
 import 'package:medical_reminder/screens/home_page.dart';
-import 'package:medical_reminder/screens/home_page.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,12 +32,14 @@ class _MyAppState extends State<MyApp> {
       home: SafeArea(
         child: Scaffold(
           backgroundColor: kSecondary,
-          // floatingActionButton: FloatingActionButton(
-          //   child: Icon(Icons.camera),
-          //   onPressed: () {},
-          //   backgroundColor: kPrimary,
-          // ),
-          body: HomePage(),
+         
+          body: MultiProvider(
+            providers: [
+              ChangeNotifierProvider<BillProvider>(
+                create: (context) => BillProvider(),
+              ),
+            ],
+            child: HomePage()),
         ),
       ),
     );
