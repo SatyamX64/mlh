@@ -21,7 +21,7 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
 
   File _image;
   final picker = ImagePicker();
-
+  //function to get the image of medicine
   Future getImage() async {
     final pickedFile = await picker.getImage(source: ImageSource.camera);
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medicalstore/const.dart';
-import 'package:medicalstore/dummy_data.dart';
 import 'package:medicalstore/models/medicine.dart';
 import 'package:medicalstore/screens/add_medicine_screen.dart';
 import 'package:medicalstore/screens/billing_screen.dart';
@@ -8,12 +7,13 @@ import 'package:medicalstore/widgets/medicine_card.dart';
 import 'package:medicalstore/widgets/proceed_button.dart';
 
 class CreateBillScreen extends StatefulWidget {
+  final List<Medicine> medicines;
+  CreateBillScreen(this.medicines);
   @override
   _CreateBillScreenState createState() => _CreateBillScreenState();
 }
 
 class _CreateBillScreenState extends State<CreateBillScreen> {
-  List<Medicine> medicines = [];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -28,7 +28,7 @@ class _CreateBillScreenState extends State<CreateBillScreen> {
               MaterialPageRoute(
                 builder: (context) => AddMedicineScreen(),
               ));
-          medicines.add(medicine);
+          widget.medicines.add(medicine);
         },
         child: Center(
             child: Icon(
@@ -48,7 +48,7 @@ class _CreateBillScreenState extends State<CreateBillScreen> {
           ),
           //proceed button
           ProceedButton(
-            onTap: medicines.isNotEmpty ? show : null,
+            onTap: widget.medicines.isNotEmpty ? show : null,
           ),
           //list of medicines will be shown by listview builder
           Padding(
@@ -58,16 +58,16 @@ class _CreateBillScreenState extends State<CreateBillScreen> {
                 size.width * 0.05555,
                 size.height * 0.09437),
             child: ListView.builder(
-              itemCount: medicines.length,
+              itemCount: widget.medicines.length,
               itemBuilder: (context, i) {
                 return Padding(
                   padding: EdgeInsets.only(bottom: size.height * 0.029585),
                   child: MedicineCard(
                     size: size,
-                    name: medicines[i].name,
-                    amount: '${medicines[i].amount}',
+                    name: widget.medicines[i].name,
+                    amount: '${widget.medicines[i].amount}',
                     onTap: () {
-                      medicines.remove(medicines[i]);
+                      widget.medicines.remove(widget.medicines[i]);
                       setState(() {});
                     },
                   ),
@@ -111,7 +111,8 @@ class _CreateBillScreenState extends State<CreateBillScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => BillingScreen(bill),
+                            builder: (context) =>
+                                BillingScreen(widget.medicines),
                           ));
                     },
                     child: Container(

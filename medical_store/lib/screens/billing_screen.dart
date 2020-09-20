@@ -27,8 +27,9 @@ class _BillingScreenState extends State<BillingScreen> {
     }
   }
 
-  // generateQR() async {
-  //   Uint8List qr = await scanner.generateBarCode()
+  // Future<Uint8List> generateQR() async {
+  //   String qrString = '${bill}';
+  //    return await scanner.generateBarCode()
   // }
 
   @override
@@ -188,6 +189,7 @@ class _BillingScreenState extends State<BillingScreen> {
                   GestureDetector(
                     onTap: () {
                       goBack = true;
+                      Navigator.pop(context);
                     },
                     child: Container(
                       width: size.width * 0.66666,
