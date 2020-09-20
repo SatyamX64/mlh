@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medicalstore/const.dart';
+import 'package:medicalstore/dummy_data.dart';
+import 'package:medicalstore/models/bill.dart';
 import 'package:medicalstore/models/medicine.dart';
 import 'package:medicalstore/screens/homepage.dart';
 import 'package:medicalstore/widgets/baseContaine.dart';
@@ -13,16 +15,17 @@ class BillingScreen extends StatefulWidget {
 }
 
 class _BillingScreenState extends State<BillingScreen> {
+  int total;
   @override
   void initState() {
-    print(widget.bill);
     super.initState();
+    for (int i = 0; i < widget.bill.length; i++)
+      total += widget.bill[i].amount * widget.bill[i].pricePerTablet;
   }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    int total = 0;
     return WillPopScope(
       onWillPop: () async {
         return false;
@@ -71,8 +74,6 @@ class _BillingScreenState extends State<BillingScreen> {
                   child: ListView.builder(
                     itemCount: 4,
                     itemBuilder: (context, i) {
-                      total +=
-                          widget.bill[i].amount * widget.bill[i].pricePerTablet;
                       return Container(
                         padding: EdgeInsets.all(4),
                         margin: EdgeInsets.only(bottom: 5),
@@ -111,12 +112,18 @@ class _BillingScreenState extends State<BillingScreen> {
               GestureDetector(
                 onTap: () async {
                   await show();
-                  if (goBack == true)
+                  if (goBack == true) {
+                    bills.add(Bill(
+                        bill: bill,
+                        date: '18/09/2020',
+                        no: bills[bills.length - 1].no + 1,
+                        total: total));
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => Homepage(),
                         ));
+                  }
                 },
                 child: Material(
                   borderRadius: BorderRadius.circular(4),

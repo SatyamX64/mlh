@@ -45,7 +45,7 @@ class _HomepageState extends State<Homepage> {
             Padding(padding: EdgeInsets.only(top: size.height * 0.02479)),
             //custom widget for each bill issued by the store head
             Container(
-              height: 370,
+              height: size.height * 0.54733,
               width: double.maxFinite,
               child: ListView.builder(
                 itemCount: bills.length,
