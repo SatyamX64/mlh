@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:medicalstore/const.dart';
 import 'package:medicalstore/dummy_data.dart';
@@ -25,8 +27,8 @@ class _BillingScreenState extends State<BillingScreen> {
     }
   }
 
-  // generateQR(){
-
+  // generateQR() async {
+  //   Uint8List qr = await scanner.generateBarCode()
   // }
 
   @override
