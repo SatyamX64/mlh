@@ -13,14 +13,18 @@ Once all the data is filled by the Medical Store Guy he will simply send it to t
 Let’s clear the WorkFlow in a simple step by step process  :-
 ========================================================================
 A.Doctor writes the Prescription and hands it to you
+
 B.You hand that over to the Medical Store guy
-C.He scans that Bill from his Mobile App and using a Text Recognition system we extract details (common details like Medicine name,quantity, specified timings etc, i.e the details which are generally listed in prescription)  
-  out of the Bill and directly put them on the Billing Screen.
-D.The Medical Store guy will then fill in the missing fields.(Like Price,which is not mentioned in prescription and varies from store to store) and also rectify any details that our Text Recognition system got wrong. 
-  In addition to all this he will also click a picture of all the Medicines while billing them. (or he can just use them from a existing database)
+
+C.He scans that Bill from his Mobile App and using a Text Recognition system we extract details (common details like Medicine name,quantity, specified timings etc, i.e the details which are generally listed in prescription)out of the Bill and directly put them on the Billing Screen.
+
+D.The Medical Store guy will then fill in the missing fields.(Like Price,which is not mentioned in prescription and varies from store to store) and also rectify any details that our Text Recognition system got wrong. In addition to all this he will also click a picture of all the Medicines while billing them. 
+(or he can just use them from a existing database)
+
 E. Once he fills in all the Details and generates the Bill, then our system will generate a regular bill, but in addition to that it will also have a QR Code (which more or less contains all the data of that bill)
+
 F. Now our Consumer will open his app and scan that QR code. That way all his medicine’s info will get stored in his App. Now he can easily keep track of all his medicines. 
-   On Top of that he will also get regular Notifications whenever he has to consume his meds. (Based on the Data entered by the Medical Store Guy)
+On Top of that he will also get regular Notifications whenever he has to consume his meds. (Based on the Data entered by the Medical Store Guy)
 
 USP of Project : 
 ==============================
