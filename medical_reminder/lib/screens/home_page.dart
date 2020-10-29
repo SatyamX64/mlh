@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size * 1;
     final billProvider = Provider.of<BillProvider>(context);
     return SafeArea(
       child: CustomScrollView(
@@ -78,12 +78,12 @@ class _HomePageState extends State<HomePage> {
                                   medicines: [
                                     Medicine(
                                       name: 'Paracetmol',
-                                      days: [1, 1, 1, 1, 1, 1, 1],
+                                      days: [14, 41, 14, 41, 31, 31, 13],
                                       price: 23.5,
                                     ),
                                     Medicine(
                                       name: 'D-Cold',
-                                      days: [1, 1, 1, 1, 1, 1, 1],
+                                      days: [2, 1, 12, 231, 21, 11, 21],
                                       price: 33.5,
                                     ),
                                   ],
