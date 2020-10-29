@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TempScreen extends StatefulWidget {
+class Database extends StatefulWidget {
   @override
-  _TempScreenState createState() => _TempScreenState();
+  _DatabaseState createState() => _DatabaseState();
 }
 
-class _TempScreenState extends State<TempScreen> {
+class _DatabaseState extends State<Database> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
