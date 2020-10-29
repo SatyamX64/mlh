@@ -78,12 +78,12 @@ class _HomePageState extends State<HomePage> {
                                   medicines: [
                                     Medicine(
                                       name: 'Paracetmol',
-                                      days: [14, 41, 14, 41, 31, 31, 13],
+                                      days: [1, 1, 1, 1, 1, 1, 1],
                                       price: 23.5,
                                     ),
                                     Medicine(
                                       name: 'D-Cold',
-                                      days: [2, 1, 12, 231, 21, 11, 21],
+                                      days: [1, 1, 1, 1, 1, 1, 1],
                                       price: 33.5,
                                     ),
                                   ],
